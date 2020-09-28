@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -33,3 +34,40 @@
 
   </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+      #alert{
+        width: 200px;
+        height: 400px;
+        background-color:crimson;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="alert">alert박스</div>
+    <button class="btn1">버튼1</button>
+    <button class="btn2">버튼2</button>
+
+
+    <script>
+
+      $('.btn1').on('click',function(){
+        $('#alert').show("30");
+      });
+      $('.btn2').on('click',function(){
+        $('#alert').hide("slow");
+      });
+
+
+    </script>
+
+  </body>
+</html>
+>>>>>>> cf5da89417a928b3395a05890a4f98f46b2873e0

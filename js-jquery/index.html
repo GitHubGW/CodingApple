@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
   <head>
@@ -68,3 +69,75 @@
 
   </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JS강의(코딩애플)</title>
+    <style>
+
+      .alert-box{
+        background-color:gray;
+        padding:20px;
+        color:white;
+        border-radius: 10px;
+        width: 100px;
+        text-align: center;
+        display: none;
+        /* visibility: hidden; */
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <!-- <h3 id="test">안녕하세요</h3> -->
+
+    <div class="alert-box" id="alert">
+      안내창
+    </div>
+
+    <!-- <button onclick="openbox()">보이기</button>
+    <button onclick="closebox()">숨기기</button> -->
+
+    <button onclick="box('block')">보이기</button>
+    <button onclick="box('none')">숨기기</button>
+
+
+
+
+    <script>
+
+      // document.getElementById('test').innerHTML="바보";
+      // document.getElementById('test').style.color="red";
+      // document.getElementById('test').style.fontSize="60px";
+
+
+      // function openbox(){
+      //   // document.getElementById('alert').style.display='none';
+      //   document.getElementById('alert').style.display='block';
+      // }
+      //
+      // function closebox(){
+      //   document.getElementById('alert').style.display="none";
+      // }
+
+
+      function box(text){
+        document.getElementById('alert').style.display=text;
+      }
+
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>
+>>>>>>> cf5da89417a928b3395a05890a4f98f46b2873e0
