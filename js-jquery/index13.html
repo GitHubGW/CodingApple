@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+      body{
+        margin:0;
+      }
+      .menu{
+        /* border:3px solid black; */
+        width: 200px;
+        height: 100vh;
+        background-color:dodgerblue;
+        /* margin-top:-100%; */
+        transition: 0.5s;
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      .menu.active{
+        transform:translateY(0);
+        opacity: 1;
+      }
+      .menu a{
+        text-decoration: none;
+        color:white;
+        display: block;
+        padding:20px;
+        text-align: center;
+      }
+      button#btn{
+        position: fixed;
+        top:20px;
+        right:20px;
+        padding:10px 20px;
+        outline:none;
+        border:none;
+        cursor: pointer;
+        background-color:royalblue;
+        color:white;
+        border-radius: 5px;
+      }
+      button#btn2{
+        position: fixed;
+        top:70px;
+        right:20px;
+        padding:10px 20px;
+        outline:none;
+        border:none;
+        cursor: pointer;
+        background-color:royalblue;
+        color:white;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="menu">
+      <a href="#">신발</a>
+      <a href="#">티셔츠</a>
+      <a href="#">바지</a>
+      <a href="#">목걸이</a>
+      <a href="#">시계</a>
+    </div>
+    <button id="btn">메뉴 열기</button>
+    <button id="btn2">메뉴 닫기</button>
+
+    <script>
+
+      // 방법1
+      // $('#btn').click(function(){
+      //   // $('.menu').animate({"margin-left":"0px"},1000);
+      //   $('.menu').animate({"margin-top":"0"},1000);
+      // });
+      //
+      // $('#btn2').click(function(){
+      //   // $('.menu').animate({"margin-left":"0px"},1000);
+      //   $('.menu').animate({"margin-top":"-100%"},1000);
+      // })
+
+
+      // 방법2
+      // $('#btn').click(function(){
+      //   // $('.menu').animate({"margin-left":"0px"},1000);
+      //   $('.menu').css("transform","translateY(0)");
+      // });
+      //
+      // $('#btn2').click(function(){
+      //   // $('.menu').animate({"margin-left":"0px"},1000);
+      //   $('.menu').css("transform","translateY(-100%)");
+      // });
+
+
+      // 방법3
+      $('#btn').click(function(){
+        $('.menu').addClass('active');
+      });
+
+      $('#btn2').click(function(){
+        $('.menu').removeClass('active');
+      });
+
+
+    </script>
+  </body>
+</html>

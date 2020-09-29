@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- ########## jQuery ########## -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+      body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container{
+        border:3px solid #ddd;
+        padding:20px;
+      }
+      input{
+        padding:5px 10px;
+      }
+      button{
+        padding:5px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- 3,6,9게임 -->
+    <div class="container">
+      <input type="text" id="user_text">
+      <button id="user_btn">3.6.9게임</button>
+    </div>
+
+
+
+    <script>
+
+      // 버튼을 클릭했을 때, input에 입력한 값이 3의 배수인지 체크해서
+      // 3의 배수이면 박수를 출력하고, 3의 배수가 아니면 통과를 출력해라
+      // 업그레이드 버전: 9의 배수이면 박수x2를 출력해라
+
+      $(function(){
+
+        $('#user_btn').on('click',function(){
+          // alert("클릭");
+          var user_text=$('#user_text').val();
+          // console.log(user_text);
+
+          if(user_text%9 == 0){
+            console.log("박수x2");
+          }else if(user_text%3 == 0){
+            console.log("박수");
+          }else{
+            console.log("통과");
+          }
+
+
+
+        });
+
+      })
+
+
+    </script>
+
+  </body>
+</html>

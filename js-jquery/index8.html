@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- ########## custom css ########## -->
-    <link rel="stylesheet" href="style6.css">
+    <link rel="stylesheet" href="style8.css">
   </head>
   <body>
 
@@ -20,8 +20,25 @@
       <!-- 모달창 -->
       <div class="user-modal">
         <div class="user-modal-content">
-          <h2>Login!!!</h2>
-          <button id="user-btn-close">close</button>
+          <h2>로그인을 해주세요</h2>
+          <form action="#">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="user-email">
+              <p></p>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="user-pw">
+              <p></p>
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary" id="sent-btn">Send</button>
+            <button type="submit" class="btn btn-primary" id="user-btn-close">Close</button>
+          </form>
         </div>
       </div>
 
@@ -38,6 +55,7 @@
         <li class="list-group-item">Shirts</li>
       </ul>
 
+      <!-- 메인 화면 -->
       <div class="jumbotron" id="user-section">
         <h1 class="display-4">Coding Apple JS</h1>
         <p class="lead">
@@ -47,8 +65,8 @@
         <p>
           It uses utility classes for typography and spacing to space content out within the larger container.
         </p>
-        <a class="btn btn-primary btn-lg" href="#" role="button" id="user-btn">Login</a>
         <input type="text" id="input-text">
+        <a class="btn btn-primary btn-lg" href="#" role="button" id="user-btn">Login</a>
       </div>
 
 
@@ -57,40 +75,85 @@
 
     <script>
 
-      // $('#user-btn').on('click',function(){
-      //   $('.user-modal').show();
-      // });
-      // $('#user-btn-close').on('click',function(){
-      //   $('.user-modal').hide();
-      // });
+      $(function(){
 
-      $('#user-btn').on('click',function(){
-        // $('.user-modal').fadeIn();
-        // $('.user-modal').slideDown();
-      });
+        // $('#user-btn').on('click',function(){
+        //   $('.user-modal').show();
+        // });
+        // $('#user-btn-close').on('click',function(){
+        //   $('.user-modal').hide();
+        // });
 
-      $('#user-btn-close').on('click',function(){
-        $('.user-modal').fadeOut();
-        // $('.user-modal').slideUp();
-      });
-
-      $('#user-menu-btn').on('click',function(){
-        $('.list-group').slideToggle();
-      });
-
-      // $('#input-text').
-
-      $('#user-btn').on('click',function(){
-
-        var input_text=$('#input-text').val();
-
-        console.log(input_text);
-
-        if(input_text=="안녕"){
+        $('#user-btn').on('click',function(){
           $('.user-modal').fadeIn();
-        }
+          // $('.user-modal').slideDown();
+        });
 
-      })
+        $('#user-btn-close').on('click',function(){
+          $('.user-modal').fadeOut();
+          // $('.user-modal').slideUp();
+        });
+
+        $('#user-menu-btn').on('click',function(){
+          $('.list-group').slideToggle();
+        });
+
+        $('#user-btn').on('click',function(){
+
+          var input_text=$('#input-text').val();
+
+          // console.log(input_text);
+
+          // if(input_text=="login"){
+          //   $('.user-modal').fadeIn();
+          // }else if(input_text=="menu"){
+          //   $('.list-group').slideToggle();
+          // }else if(input_text=="color"){
+          //   $('#user-section h1').css("color","royalblue").css("font-weight","bold");
+          // }
+
+        });
+
+        $('form').on('submit',function(e){
+
+          var user_email=$('#user-email').val();
+          // console.log(user_email);
+
+          var user_pw=$('#user-pw').val();
+          // console.log(user_pw);
+
+          if(user_email==""){
+
+            // 폼의 전송을 막음
+            e.preventDefault();
+
+            // alert("이메일을 입력해주세요");
+            $('#user-email').focus();
+            $('#user-email ~ p').html("<h2>이메일을 입력해주세요!!!</h2>");
+            // $('p').text("이메일을 입력해주세요~~");
+
+            // return false;
+          }else if(user_pw==""){
+            e.preventDefault();
+            $('#user-pw').focus();
+            $('#user-pw ~ p').html("<h2>비밀번호를 입력해주세요!!</h2>");
+          }else{
+            alert("메일 주소는 "+user_email+"입니다");
+            alert("비밀번호는 "+user_pw+"입니다");
+          }
+
+          // if(user_pw=""){
+          //   alert("비밀번호를 입력해주세요");
+          //   $('#user-pw').focus();
+          //   return false;
+          // }else{
+          //   alert("비밀번호는 "+user_pw+"입니다");
+          // }
+
+        });
+
+    });
+
 
     </script>
 

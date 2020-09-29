@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+
+    E-mail:<input type="email" id="user_email"><br>
+    Password:<input type="pw" id="user_pw"><br>
+    <button id="btn">전송</button>
+
+    <script>
+
+      // 이메일 검증을 위한 정규 표현식
+      // /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i
+
+      // abcd123@naver.com
+      // /\S+@\S+\.\S+/.test("")
+
+      $('#btn').click(function(e){
+
+        var user_email=$('#user_email').val();
+        console.log(user_email);
+
+        // if(/\S+@\S+\.\S+/.test(user_email)){
+        //   alert("올바른 이메일을 입력하셨습니다");
+        // }else{
+        //   alert("올바른 이메일을 입력해주세요");
+        //   e.preventDefault();
+        // }
+
+        var email_check=/^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+        // console.log(email_check);
+
+        if(user_email==""){
+          alert("이메일을 입력해주세요");
+          $('#user_email').focus();
+          e.preventDefault();
+        }else if(email_check.test(user_email)){
+          alert("올바른 이메일을 입력하였습니다");
+        }else{
+          alert("잘못된 이메일을 입력하였습니다.");
+          e.preventDefault();
+        }
+
+      });
+
+    </script>
+
+  </body>
+</html>

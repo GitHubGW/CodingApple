@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+      body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container{
+        /* border:5px solid red; */
+      }
+      input{
+        padding:20px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <input type="text" id="user_input">
+      <p>input입니다.</p>
+    </div>
+
+
+
+    <script>
+
+      $('#user_input').on('input',function(){
+        var user_input=$('#user_input').val();
+        $('.container p').text(user_input);
+      });
+
+      // $('#user_input').on('change',function(){
+      //   var user_input=$('#user_input').val();
+      //   $('.container p').text(user_input);
+      // });
+
+    </script>
+
+  </body>
+</html>

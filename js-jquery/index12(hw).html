@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  </head>
+  <body>
+
+
+    <script>
+
+      // 게임1
+      // var money=40000;
+      //
+      // var future_money=0;
+      //
+      // if(money>=50000){
+      //   future_money=money*1.2*1.2;
+      //   console.log(future_money);
+      // }else if(money<50000){
+      //   future_money=money*1.15*1.15;
+      //   console.log(future_money);
+      // }
+
+      // 게임2
+      var coffee1;
+      var total_drink=0;
+
+      function coffee_machine(coffee1){
+        var coffee2=coffee1*2/3;
+        var coffee3=coffee2*2/3;
+        total_drink=coffee1+coffee2+coffee3;
+        console.log("총 마신 커피 : "+total_drink);
+      }
+
+      coffee_machine(60);
+
+
+    </script>
+
+  </body>
+</html>
