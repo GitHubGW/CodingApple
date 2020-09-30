@@ -1,2 +1,2 @@
 # CodingApple
-Course
+CodingApple Course
