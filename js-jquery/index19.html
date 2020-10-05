@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>이벤트 버블링/이벤트 함수</title>
+    <!-- ########## jQuery ########## -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- ########## Bootstrap CSS, JS ########## -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- ########## custom css ########## -->
+    <link rel="stylesheet" href="style19.css" />
+  </head>
+  <body>
+    <div class="user-container">
+      <!-- 모달창 -->
+      <div class="user-modal">
+        <div class="user-modal-content">
+          <h2>로그인을 해주세요</h2>
+          <form action="#">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="user-email" />
+              <p></p>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="user-pw" />
+              <p></p>
+            </div>
+            <div class="form-group form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+              />
+              <label class="form-check-label" for="exampleCheck1"
+                >Check me out</label
+              >
+            </div>
+            <button type="submit" class="btn btn-primary" id="sent-btn">
+              Send
+            </button>
+            <button type="submit" class="btn btn-primary" id="user-btn-close">
+              Close
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- 메뉴 -->
+      <div class="user-menu">
+        <h4>BootStrap</h4>
+        <a href="#" id="user-menu-btn">Menu</a>
+      </div>
+
+      <!-- 리스트 -->
+      <ul class="list-group">
+        <li class="list-group-item">Outer</li>
+        <li class="list-group-item">Innerwear</li>
+        <li class="list-group-item">Shirts</li>
+      </ul>
+
+      <!-- 메인 화면 -->
+      <div class="jumbotron" id="user-section">
+        <h1 class="display-4">Coding Apple JS</h1>
+        <p class="lead">
+          This is a simple hero unit, a simple jumbotron-style component for
+          calling extra attention to featured content or information.
+        </p>
+        <hr class="my-4" />
+        <p>
+          It uses utility classes for typography and spacing to space content
+          out within the larger container.
+        </p>
+        <input type="text" id="input-text" />
+        <a class="btn btn-primary btn-lg" href="#" role="button" id="user-btn"
+          >Login</a
+        >
+      </div>
+    </div>
+
+    <script>
+      $(function () {
+        $("#user-btn").on("click", function () {
+          $(".user-modal").fadeIn();
+          // $('.user-modal').slideDown();
+        });
+
+        $("#user-btn-close").on("click", function () {
+          $(".user-modal").fadeOut();
+          // $('.user-modal').slideUp();
+        });
+
+        $("#user-menu-btn").on("click", function () {
+          $(".list-group").slideToggle();
+        });
+
+        $("#user-btn").on("click", function () {
+          var input_text = $("#input-text").val();
+        });
+
+        $("form").on("submit", function (e) {
+          var user_email = $("#user-email").val();
+          var user_pw = $("#user-pw").val();
+
+          if (user_email == "") {
+            // 폼의 전송을 막음
+            e.preventDefault();
+            // alert("이메일을 입력해주세요");
+            $("#user-email").focus();
+            $("#user-email ~ p").html("<h2>이메일을 입력해주세요!!!</h2>");
+            // $('p').text("이메일을 입력해주세요~~");
+
+            // return false;
+          } else if (user_pw == "") {
+            e.preventDefault();
+            $("#user-pw").focus();
+            $("#user-pw ~ p").html("<h2>비밀번호를 입력해주세요!!</h2>");
+          } else {
+            alert("메일 주소는 " + user_email + "입니다");
+            alert("비밀번호는 " + user_pw + "입니다");
+          }
+        });
+
+        $(".user-modal").click(function (e) {
+          //   console.log(e);
+          //   e.target:이벤트가 발생한 요소(부모의 자식중 하나)
+          //   e.currentTarget:이벤트가 등록된 요소(부모)
+          //   console.log(e.target);
+          //   console.log(e.currentTarget);
+          if (e.target === e.currentTarget) {
+            $(this).fadeOut();
+          }
+          //   if (e.target === document.querySelector(".user-modal")) {
+          //     $(this).fadeOut();
+          //   }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체와 배열</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+    <h2 id="title">상품제목</h2>
+    <p id="content">상품내용</p>
+
+    <script>
+      let array = ["사과", "오렌지", "포도"];
+      console.log(array);
+      console.log(array[0]);
+      console.log(array[1]);
+      console.log(array[2]);
+      console.log(array.length);
+
+      let object = {
+        name: "강아지",
+        age: 18,
+        country: "USA",
+      };
+      console.log(object);
+      console.log(object.name);
+      console.log(object.age);
+      console.log(object.country);
+      console.log(object.length);
+
+      //   $("#title").click(function () {
+      //     $(this).html(array[0]);
+      //   });
+      //   $("#content").click(function () {
+      //     $(this).text(object.age);
+      //   });
+
+      let user_data = [{ name: "dog" }, { name: "cat" }];
+      console.log(user_data);
+      console.log(user_data[0]);
+      console.log(user_data[1]);
+      console.log(user_data[0].name);
+      console.log(user_data[1].name);
+
+      $("#title").click(function () {
+        $(this).html(user_data[0].name);
+      });
+      $("#content").click(function () {
+        $(this).html(user_data[1].name);
+      });
+    </script>
+  </body>
+</html>

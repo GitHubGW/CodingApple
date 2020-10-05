@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스크롤 애니메이션</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 300vh;
+        background: linear-gradient(to right, crimson, royalblue);
+      }
+      nav {
+        /* border: 5px solid red; */
+        background-color: transparent;
+        color: white;
+        overflow: hidden;
+        height: 80px;
+        padding: 20px;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transition: 1s;
+        font-size: 20px;
+      }
+      nav.active {
+        background-color: coral;
+        font-size: 18px;
+      }
+      .logo {
+        /* border: 5px solid blue; */
+        /* float: left; */
+        font-size: 25px;
+      }
+      .menu {
+        /* border: 5px solid green; */
+        /* float: right; */
+      }
+      .menu a {
+        /* border: 5px solid orange; */
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+        line-height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">Scroll Animation</div>
+      <div class="menu">
+        <a href="#none">SERVICES</a>
+        <a href="#none">PORTFOLIO</a>
+        <a href="#none">ABOUT</a>
+        <a href="#none">TEAM</a>
+        <a href="#none">CONTACT</a>
+      </div>
+    </nav>
+
+
+    
+    <script>
+      $(window).on("scroll", function () {
+        var scroll_position = $(this).scrollTop();
+        console.log(scroll_position);
+        if (scroll_position > 150) {
+          $("nav").addClass("active");
+        } else if (scroll_position <= 150) {
+          $("nav").removeClass("active");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>탭 기능만들기</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        ul.list {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          border-bottom: 1px solid #ccc;
+        }
+        ul.list::after {
+          content: '';
+          display: block;
+          clear: both;
+        }
+        .tab-button {
+          display: block;
+          padding: 10px 20px 10px 20px;
+          float: left;
+          margin-right: -1px;
+          margin-bottom: -1px;
+          color: grey;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        .tab-button.active {
+          border-top: 2px solid orange;
+          border-right: 1px solid #ccc;
+          border-bottom: 1px solid white;
+          border-left: 1px solid #ccc;
+          color: black;
+          margin-top: -2px;
+        }
+        .tab-content {
+          display: none;
+          padding: 10px;
+        }
+        .tab-content.show {
+          display: block;
+        }
+      </style>
+  </head>
+  <body>
+    <div class="container mt-5"">
+        <ul class="list">
+            <li class="tab-button active">Products</li>
+            <li class="tab-button">Information</li>
+            <li class="tab-button">Shipping</li>
+        </ul>
+    
+        <div class="tab-content show">
+            <p>상품설명입니다. Product</p>
+        </div>
+        <div class="tab-content">
+            <p>상품정보입니다. Info</p>
+        </div>
+        <div class="tab-content">
+            <p>배송정보입니다. Shipping</p>
+        </div>
+    </div>
+
+    <script src="script18.js"></script>
+  </body>
+</html>
