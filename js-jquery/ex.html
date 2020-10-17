@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+      body{
+        margin:0;
+        padding:0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+
+    <form action="#">
+      <input type="text" id="user_text">
+      <button id="user_btn">보내기</button>
+    </form>
+
+    <script>
+
+      // form요소에 'submit'이벤트
+      $('form').on('submit',function(){
+          alert("form!");
+          var user_text=$('#user_text').val();
+          console.log(user_text);
+      })
+
+      // #user_btn(버튼)에 'click'이벤트
+      $('#user_btn').click(function(){
+        alert("button!");
+        var user_text=$('#user_text').val();
+        console.log(user_text);
+      });
+
+    </script>
+
+  </body>
+</html>
