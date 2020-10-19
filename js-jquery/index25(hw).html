@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array 자료형, for 반복문 실력향상 과제</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+    <script>
+      // 게임1
+      let check = ["흥민", "영희", "철수", "재석"];
+
+      // function finding_name(name) {
+      //   // check.forEach(function (i) {
+      //   //   // console.log(i);
+      //   //   if (i === name) {
+      //   //     console.log("출석부에 있어요");
+      //   //   } else {
+      //   //     // console.log("출석부에 없는 이름이예요");
+      //   //   }
+      //   // });
+
+      //   for (var i = 0; i < check.length; i++) {
+      //     if (name === check[i]) {
+      //       console.log("이름이 있어요");
+      //       return;
+      //     } else {
+      //       console.log("이름이 없어요");
+      //     }
+      //   }
+      // }
+      // finding_name("철수");
+
+      // 게임2
+      // for (let i = 2; i < 10; i++) {
+      //   // console.log(i);
+      //   for (let j = 1; j < 10; j++) {
+      //     console.log(i * j);
+      //   }
+      //   console.log("===========================");
+      // }
+
+      // 게임3
+      let selling_array = [11, 6, 2, 3, 5];
+      let selling_month = 10;
+
+      function myCalculator(selling_array, selling_month) {
+        let selling_month_result = selling_month * 6;
+        // console.log(selling_month_result);
+
+        let selling_array_result = 0;
+        for (let i = 0; i < selling_array.length; i++) {
+          // console.log(selling_array[i]);
+          selling_array_result = selling_array_result + selling_array[i];
+          // console.log(selling_array_result);
+        }
+
+        console.log(
+          "12월에 판매해야할 실적:" +
+            Number(selling_month_result - selling_array_result)
+        );
+      }
+      myCalculator(selling_array, selling_month);
+    </script>
+  </body>
+</html>

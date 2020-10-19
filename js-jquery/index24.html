@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+      #size {
+        /* display: none; */
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#">
+      <select name="" id="user_product">
+        <option value="pants" id="pants">바지</option>
+        <option value="shirt" id="shirt">셔츠</option>
+        <option value="shoe" id="shoe">신발</option>
+      </select>
+
+      <div id="size">
+        <p>사이즈 선택</p>
+        <select name="" id="size_choose"></select>
+      </div>
+    </form>
+
+    <script>
+      $(function () {
+        $("#user_product").on("change", function () {
+          let user_product = $("#user_product").val();
+          //   console.log(user_product);
+
+          let arr_size = [26, 28, 30, 32, 34, 36];
+
+          if (user_product === "shirt") {
+            $("#size_choose").html("");
+            let shirt_size = `<option>95</option>
+              <option>100</option>
+              <option>105</option>`;
+            $("#size_choose").append(shirt_size);
+          } else if (user_product === "shoe") {
+            $("#size_choose").html("");
+            let shoe_size =
+              "<option>265</option><option>270</option><option>275</option>";
+            $("#size_choose").append(shoe_size);
+          } else if (user_product === "pants") {
+            $("#size_choose").html("");
+
+            // for (var i = 0; i < arr_size.length; i++) {
+            //   //   let pants_size = "<option>" + arr_size[i] + "</option>";
+            //   let pants_size = `<option>${arr_size[i]}</option>`;
+            //   $("#size_choose").append(pants_size);
+            // }
+
+            arr_size.forEach(function (i) {
+              let pants_size = "<option>" + i + "</option>";
+            //   let pants_size = `<option>${arr_size[i]}</option>`;
+              $("#size_choose").append(pants_size);
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
