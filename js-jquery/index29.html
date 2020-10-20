@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스크롤 위치에 따라 변하는 애니메이션 : Apple Music UI 만들기</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+      }
+      .parent {
+        /* border: 5px solid red; */
+        height: 3000px;
+        padding-top: 300px;
+        box-sizing: border-box;
+      }
+      .card-box {
+        text-align: center;
+        position: sticky;
+        top: 350px;
+        left: 0;
+        /* border: 3px solid blue; */
+        transition: 0.2s;
+      }
+      .card-box img {
+        display: inline-block;
+        margin-bottom: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="card-box">
+        <img class="card1" src="images/card1.png" alt="" />
+      </div>
+      <div class="card-box">
+        <img class="card2" src="images/card2.png" alt="" />
+      </div>
+      <div class="card-box">
+        <img class="card3" src="images/card3.png" alt="" />
+      </div>
+    </div>
+
+    <script>
+      $(function () {
+        $(window).on("scroll", function () {
+          let window_scrolltop = $(window).scrollTop();
+          console.log(window_scrolltop);
+
+          let scroll_opacity = (-7 / 6000) * window_scrolltop + 67 / 60;
+          $(".card-box").eq(0).css("opacity", scroll_opacity);
+
+          let scroll_scale = (-1 / 5000) * window_scrolltop + 50 / 51;
+          $(".card-box")
+            .eq(0)
+            .css("transform", "scale(" + scroll_scale + ")");
+        });
+      });
+    </script>
+  </body>
+</html>
