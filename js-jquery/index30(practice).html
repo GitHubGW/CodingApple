@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지 슬라이드</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        border: 3px solid lightgray;
+        width: 800px;
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+      }
+      .slide-box {
+        /* border: 5px solid blue; */
+        width: 2400px;
+        height: 600px;
+        /* transition: 0.2s; */
+      }
+      .slide-box.active1 {
+        transform: translateX(0);
+      }
+      .slide-box.active2 {
+        transform: translateX(-33.333333%);
+      }
+      .slide-box.active3 {
+        transform: translateX(-66.666666%);
+      }
+      .slide {
+        width: 800px;
+        height: 600px;
+        float: left;
+      }
+      .slide img {
+        width: 100%;
+        height: 100%;
+      }
+      .btns {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        /* border: 5px solid red; */
+      }
+      .btns button {
+        padding: 8px 25px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 20px;
+        transition: 0.5s;
+      }
+      .btns button:hover {
+        background-color: black;
+        color: white;
+      }
+      .prev_next {
+        /* border: 5px solid red; */
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        transform: translateY(-50%);
+        text-align: center;
+      }
+      .prev_next button {
+        padding: 10px 20px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: cadetblue;
+        color: white;
+      }
+      .prev_next button:hover {
+        background-color: royalblue;
+      }
+      #prev {
+        float: left;
+        margin-left: 20px;
+      }
+
+      #next {
+        float: right;
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="slide-box">
+        <div class="slide slide1">
+          <img src="images/car1.jpg" alt="" />
+        </div>
+        <div class="slide slide2">
+          <img src="images/car2.jpg" alt="" />
+        </div>
+        <div class="slide slide3">
+          <img src="images/car3.jpg" alt="" />
+        </div>
+      </div>
+      <div class="prev_next">
+        <button id="prev">prev</button>
+        <button id="next">next</button>
+      </div>
+    </div>
+
+    <div class="btns">
+      <button id="btn1" checked>1</button>
+      <button id="btn2">2</button>
+      <button id="btn3">3</button>
+    </div>
+
+    <script>
+      // Get a reference to an element
+      var slideBox = document.querySelector(".slide-box");
+
+      // Create a manager to manage the element
+      var manager = new Hammer.Manager(slideBox);
+
+      // Create a recognizer
+      var Tap = new Hammer.Tap({
+        taps: 1,
+      });
+      var DoubleTap = new Hammer.Tap({
+        event: "doubletap",
+        taps: 3,
+      });
+      var Press = new Hammer.Press({
+        time: 500,
+      });
+      var Pan = new Hammer.Pan({
+        threshold: 0,
+      });
+
+      // Add the recognizer to the manager
+      manager.add(Tap);
+      manager.add(DoubleTap);
+      manager.add(Press);
+      manager.add(Pan);
+
+      // Subscribe to the desired event
+      manager.on("tap", function (e) {
+        console.log("tap");
+      });
+      manager.on("doubletap", function (e) {
+        console.log("doubletap");
+      });
+      manager.on("press", function (e) {
+        console.log("press");
+      });
+      manager.on("pan", function (e) {
+        console.log("pan");
+        console.log(e.deltaX);
+        console.log(e.deltaY);
+      });
+    </script>
+  </body>
+</html>
